@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.getenv('SECRET_KEY', 'default_key')
 
-DEBUG = os.getenv('DEBUG', 'True').lower() == 'True'
+DEBUG = True
+# os.getenv('DEBUG', 'True').lower() == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOST', default='127.0.0.1, localhost').split(', ')
 
@@ -150,8 +151,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-
-TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 AUTH_USER_MODEL = 'app.User'
 
