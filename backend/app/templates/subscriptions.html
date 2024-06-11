@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}My Subscriptions{% endblock %}
+
+{% block content %}
+<h2>My Subscriptions</h2>
+<ul>
+    {% for subscription in subscriptions %}
+        <li>
+            {{ subscription.subscribee.username }} - {{ subscription.subscribee.email }}
+            <a href="{% url 'unsubscribe' subscription.subscribee.id %}">Unsubscribe</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'unsubscribe_all' %}">Unsubscribe from All</a>
+{% endblock %}
